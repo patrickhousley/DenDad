@@ -1,6 +1,7 @@
 <?php
 /**
  * Den model for User table of database.
+ * 
  * @author Patrick Housley <patrick.f.housley@gmail.com>
  * @version 1.0
  * @since 1.0
@@ -10,7 +11,7 @@
  */
 namespace com\github\patrickhousley\den_dad\model;
 
-class Den extends \DenDad\base\BaseModel implements \DenDad\interfaces\IModel {
+class Den extends AbstractModel {
 
     protected $id;
     protected $denNumber;
@@ -18,7 +19,7 @@ class Den extends \DenDad\base\BaseModel implements \DenDad\interfaces\IModel {
     protected $rank;
     
     function __construct($id = null) {
-        parent::__construct($id, 'id', TRUE, array(
+        parent::__construct('id', TRUE, array(
             'id',
             'denNumber',
             'packNumber',
@@ -36,8 +37,8 @@ class Den extends \DenDad\base\BaseModel implements \DenDad\interfaces\IModel {
         foreach ($this->_columnMap as $col) {
             switch ($col) {
                 default:
-                    $this->set($col, \DeanDad\libs\Cleanse::removeAllTags(
-                            \trim($this->get($col))
+                    $this->set($col, AppLibs\Cleanse::removeAllTags(
+                            trim($this->get($col))
                     ));
                     break;
             }
@@ -51,20 +52,20 @@ class Den extends \DenDad\base\BaseModel implements \DenDad\interfaces\IModel {
      * for persistance in the database. Will return true if the model passes the
      * validation. Otherwise, an array of properties that failed validation will
      * be returned.</p>
-     * @return mixed True if validation is successful, an array otherwise.
+     * @return boolean|array
      */
     public function validate() {
         $invalid = array();
         foreach ($this->_columnMap as $col) {
             switch ($col) {
                 default:
-                    if (\trim($this->get($col)) == '') {
+                    if (trim($this->get($col)) == '') {
                         $invalid[] = $col;
                     }
                     break;
             }
         }
         
-        return (\count($invalid) > 0) ? $invalid : true;
+        return (count($invalid) > 0) ? $invalid : true;
     }
 }
