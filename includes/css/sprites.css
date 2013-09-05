@@ -1,0 +1,216 @@
+/*******************************************************************************
+Cub Scout Trail Sprite
+*******************************************************************************/
+.cubscouttrail_bobcat {
+    height: 75px;
+    width: 75px;
+    background: transparent url('/images/patches/CubScoutTrail.png') -55px -100px;
+}
+.cubscouttrail_tiger {
+    height: 75px;
+    width: 75px;
+    background: transparent url('/images/patches/CubScoutTrail.png') 0px -25px;
+}
+.cubscouttrail_wolf {
+    height: 75px;
+    width: 75px;
+    background: transparent url('/images/patches/CubScoutTrail.png') -75px 0px;
+}
+.cubscouttrail_bear {
+    height: 75px;
+    width: 75px;
+    background: transparent url('/images/patches/CubScoutTrail.png') -55px -175px;
+}
+.cubscouttrail_webelos {
+    height: 125px;
+    width: 55px;
+    background: transparent url('/images/patches/CubScoutTrail.png') 0px -100px;
+}
+.cubscouttrail_aol {
+    height: 25px;
+    width: 65px;
+    background: transparent url('/images/patches/CubScoutTrail.png') 0px 0px;
+}
+
+/*******************************************************************************
+Pack Number Sprite
+*******************************************************************************/
+.pack_number_0 {
+    width: 52px;
+    height: 82px;
+    background: transparent url('/images/patches/PackNumbers.png') 0px 0px;
+}
+.pack_number_1 {
+    width: 52px;
+    height: 82px;
+    background: transparent url('/images/patches/PackNumbers.png') -52px 0px;
+}
+.pack_number_2 {
+    width: 52px;
+    height: 82px;
+    background: transparent url('/images/patches/PackNumbers.png') -104px 0px;
+}
+.pack_number_3 {
+    width: 52px;
+    height: 82px;
+    background: transparent url('/images/patches/PackNumbers.png') -156px 0px;
+}
+.pack_number_4 {
+    width: 52px;
+    height: 82px;
+    background: transparent url('/images/patches/PackNumbers.png') -208px 0px;
+}
+.pack_number_5 {
+    width: 52px;
+    height: 82px;
+    background: transparent url('/images/patches/PackNumbers.png') -260px 0px;
+}
+.pack_number_6 {
+    width: 52px;
+    height: 82px;
+    background: transparent url('/images/patches/PackNumbers.png') -312px 0px;
+}
+.pack_number_7 {
+    width: 52px;
+    height: 82px;
+    background: transparent url('/images/patches/PackNumbers.png') -364px 0px;
+}
+.pack_number_8 {
+    width: 52px;
+    height: 82px;
+    background: transparent url('/images/patches/PackNumbers.png') -416px 0px;
+}
+.pack_number_9 {
+    width: 52px;
+    height: 82px;
+    background: transparent url('/images/patches/PackNumbers.png') -468px 0px;
+}
+.pack_number_bg {
+    width: 52px;
+    height: 82px;
+    background: transparent url('/images/patches/PackNumbers.png') -520px 0px;
+}
+.pack_number_label {
+    width: 115px;
+    height: 82px;
+    background: transparent url('/images/patches/PackNumbers.png') -580px 0px;
+}
+
+/*******************************************************************************
+Den Number Sprite
+*******************************************************************************/
+.den_number_0 {
+    width: 26px;
+    height: 22px;
+    background: transparent url('/images/patches/DenNumbers.png') 0px 0px;
+}
+.den_number_1 {
+    width: 26px;
+    height: 22px;
+    background: transparent url('/images/patches/DenNumbers.png') -26px 0px;
+}
+.den_number_2 {
+    width: 26px;
+    height: 22px;
+    background: transparent url('/images/patches/DenNumbers.png') -52px 0px;
+}
+.den_number_3 {
+    width: 26px;
+    height: 22px;
+    background: transparent url('/images/patches/DenNumbers.png') -78px 0px;
+}
+.den_number_4 {
+    width: 26px;
+    height: 22px;
+    background: transparent url('/images/patches/DenNumbers.png') -104px 0px;
+}
+.den_number_5 {
+    width: 26px;
+    height: 22px;
+    background: transparent url('/images/patches/DenNumbers.png') -130px 0px;
+}
+.den_number_6 {
+    width: 26px;
+    height: 22px;
+    background: transparent url('/images/patches/DenNumbers.png') -156px 0px;
+}
+.den_number_7 {
+    width: 26px;
+    height: 22px;
+    background: transparent url('/images/patches/DenNumbers.png') -182px 0px;
+}
+.den_number_8 {
+    width: 26px;
+    height: 22px;
+    background: transparent url('/images/patches/DenNumbers.png') -208px 0px;
+}
+.den_number_9 {
+    width: 26px;
+    height: 22px;
+    background: transparent url('/images/patches/DenNumbers.png') -234px 0px;
+}
+.den_number_bg {
+    width: 163px;
+    height: 52px;
+    background: transparent url('/images/patches/DenNumbers.png') -260px 0px;
+}
+
+/*******************************************************************************
+Menu Items
+*******************************************************************************/
+.menu_home {
+    width: 116px;
+    height: 28px;
+    background: transparent url('/images/MenuItems.png') 0px 0px;
+}
+.menu_home:hover {
+    background: transparent url('/images/MenuItems.png') 0px -28px;
+}
+.menu_manage_den {
+    width: 116px;
+    height: 28px;
+    background: transparent url('/images/MenuItems.png') -116px 0px;
+}
+.menu_manage_den:hover {
+    background: transparent url('/images/MenuItems.png') -116px -28px;
+}
+.menu_manage_scout {
+    width: 116px;
+    height: 28px;
+    background: transparent url('/images/MenuItems.png') -232px 0px;
+}
+.menu_manage_scout:hover {
+    background: transparent url('/images/MenuItems.png') -232px -28px;
+}
+.menu_event {
+    width: 116px;
+    height: 28px;
+    background: transparent url('/images/MenuItems.png') -348px 0px;
+}
+.menu_event:hover {
+    background: transparent url('/images/MenuItems.png') -348px -28px;
+}
+.menu_discussions {
+    width: 116px;
+    height: 28px;
+    background: transparent url('/images/MenuItems.png') -464px 0px;
+}
+.menu_discussions:hover {
+    background: transparent url('/images/MenuItems.png') -464px -28px;
+}
+.menu_gallery {
+    width: 116px;
+    height: 28px;
+    background: transparent url('/images/MenuItems.png') -580px 0px;
+}
+.menu_gallery:hover {
+    background: transparent url('/images/MenuItems.png') -580px -28px;
+}
+.menu_support {
+    width: 116px;
+    height: 28px;
+    background: transparent url('/images/MenuItems.png') -696px 0px;
+}
+.menu_support:hover {
+    background: transparent url('/images/MenuItems.png') -696px -28px;
+}

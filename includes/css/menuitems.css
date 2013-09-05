@@ -1,0 +1,8 @@
+.sprite { background-image: url('../images/MenuItems.png'); background-color: transparent; background-repeat: no-repeat; }
+.0 { width: 116px; height: 56px; background-position: 0px 0px; }
+.1 { width: 116px; height: 56px; background-position: -116px 0px; }
+.2 { width: 116px; height: 56px; background-position: -232px 0px; }
+.3 { width: 116px; height: 56px; background-position: -348px 0px; }
+.4 { width: 116px; height: 56px; background-position: -464px 0px; }
+.5 { width: 116px; height: 56px; background-position: -580px 0px; }
+.6 { width: 116px; height: 56px; background-position: -696px 0px; }
