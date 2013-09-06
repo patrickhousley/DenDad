@@ -15,7 +15,7 @@
 namespace com\github\patrickhousley\den_dad\config;
 
 return array(
-    'DB_DAO' => 'MySQLDAO',
+    'DB_DAO' => '\\com\\github\\patrickhousley\\den_dad\\dao\\MySQLDAO',
     'DB_USER' => 'devuser',
     'DB_PASS' => 'devpass',
     'DB_HOST' => 'localhost',

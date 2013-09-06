@@ -1,4 +1,5 @@
 <?php
+
 /**
  * View is the default view for the DenDad Index controller.
  * @author Patrick Housley <patrick.f.housley@gmail.com>
@@ -8,13 +9,12 @@
  * @subpackage view\index
  * @copyright (c) 2012, Patrick Housley
  */
+
 namespace com\github\patrickhousley\den_dad\view\index;
 
 use \com\github\patrickhousley\den_dad\view as AppViews;
 
 class View extends AppViews\AbstractView {
-
-    function __construct() {}
 
     public function render($toScreen = TRUE) {
         $this->template['TrailPatches'] = $this->loadTemplate(__DIR__ . DS . '..' .
@@ -31,13 +31,14 @@ class View extends AppViews\AbstractView {
                 DS . 'templates' . DS . 'layouts' . DS . 'TwoColumnBody.php');
         $this->template['MasterFooter'] = $this->loadTemplate(__DIR__ . DS . '..' .
                 DS . 'templates' . DS . 'layouts' . DS . 'MasterFooter.php');
-        
+
         if ($toScreen) {
             echo($this->loadTemplate(__DIR__ . DS . '..' . DS . 'templates' . DS .
                     'layouts' . DS . 'MasterLayout.php'));
         } else {
             return $this->loadTemplate(__DIR__ . DS . '..' . DS . 'templates' . DS .
-                    'layouts' . DS . 'MasterLayout.php');
+                            'layouts' . DS . 'MasterLayout.php');
         }
     }
+
 }

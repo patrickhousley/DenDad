@@ -15,7 +15,7 @@ namespace com\github\patrickhousley\den_dad\dao;
 
 use \PDO;
 
-class MySQLDAO {
+class MySQLDAO extends lib\AbstractDAO {
     /**
      * Current static PDO connection to the database.
      * @var \PDO 
@@ -27,7 +27,7 @@ class MySQLDAO {
      */
     private function __construct() {}
     
-    public function connect() {
+    public static function connect() {
         if (!isset(self::$connection)) {
             self::$connection = new PDO($GLOBALS['DENDAD_CONFIG']['DB_DSN'], 
                     $GLOBALS['DENDAD_CONFIG']['DB_USER'], 
@@ -45,24 +45,23 @@ class MySQLDAO {
      * offset variables. Once performed, the function will instantiate a new model
      * object for each row based on the table name, set the properties for the model,
      * and return an array of models.</p>
-     * @param string $table Name of table to search in.
-     * @param array $parameters Parameters for WHERE clause of search.
-     * @param array $ordering Ordering parameters.
-     * @param int $limit Maximum number of records to return.
-     * @param int $offset Offset for limit.
-     * @return \DenDad\base\model
-     * @throws \PDOException
+     * @param string $table
+     * @param array $parameters
+     * @param array $ordering
+     * @param int $limit
+     * @param int $offset
+     * @return \com\github\patrickhousley\den_dad\model\AbstractModel
      */
     public static function search($table, $parameters = array(), $ordering = array(),
             $limit = null, $offset = null) {
-        $model = '\\DenDad\\models\\' . $table;
+        $model = '\\com\\github\\patrickhousley\\den_dad\model\\' . $table;
         $sql = 'SELECT * FROM ' . $table;
         $sqlWhere = '';
         $sqlWhereValues = array();
         $sqlOrder = '';
         $sqlLimit = '';
         
-        if (\is_array($parameters) && \count($parameters) > 0) {
+        if (is_array($parameters) && count($parameters) > 0) {
             foreach($parameters as $ind => $val) {
                 if ($sqlWhere == '') { 
                     $sqlWhere = ' WHERE ';

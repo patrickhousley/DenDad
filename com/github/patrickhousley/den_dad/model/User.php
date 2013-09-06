@@ -41,6 +41,10 @@ class User extends AbstractModel {
             'lastAccessDate',
             'lastAccessIP'
         ));
+        
+        if (isset($id)) {
+            
+        }
     }
 
     /**

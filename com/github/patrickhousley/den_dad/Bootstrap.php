@@ -8,12 +8,12 @@
  * @version 1.0
  * @since 1.0
  * @package com\github\patrickhousley\den_dad
- * @subpackage lib
  * @copyright (c) 2012, Patrick Housley
  */
 
-namespace com\github\patrickhousley\den_dad\lib;
+namespace com\github\patrickhousley\den_dad;
 
+use \com\github\patrickhousley\den_dad\controller as AppControllers;
 use \InvalidArgumentException;
 use \Exception;
 
@@ -29,14 +29,13 @@ class Bootstrap {
      */
     public static function init() {
         session_start();
+        define('APP_ROOT', dirname(__FILE__));
         set_exception_handler(array(__NAMESPACE__ . '\\Bootstrap', 'globalExceptionHandler'));
         spl_autoload_register(__NAMESPACE__ . '\\Bootstrap::autoload', true);
 
-        $GLOBALS['DENDAD_CONFIG'] = require_once ROOT . DS . 'com' . DS .
-                'github' . DS . 'patrickhousley' . DS . 'den_dad' . DS . 'config'
+        $GLOBALS['DENDAD_CONFIG'] = require_once APP_ROOT . DS . 'config'
                 . DS . 'Config.php';
-        $GLOBALS['DENDAD_DB_CONFIG'] = require_once ROOT . DS . 'com' . DS .
-                'github' . DS . 'patrickhousley' . DS . 'den_dad' . DS . 'config'
+        $GLOBALS['DENDAD_DB_CONFIG'] = require_once APP_ROOT . DS . 'config'
                 . DS . 'DatabaseConfig.php';
 
         /**
@@ -57,7 +56,7 @@ class Bootstrap {
         /**
          * Instantiate the controller requested by the user.
          */
-        $controller = ControllerFactory::getController();
+        $controller = AppControllers\lib\ControllerFactory::getController();
 
         if (!is_null($controller)) {
             echo('<div style="position:absolute;top:-150px;left:-150px;">' .

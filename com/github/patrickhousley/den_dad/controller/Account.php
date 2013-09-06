@@ -1,16 +1,31 @@
 <?php
 /**
  * Account is the account management controller for the DenDad application.
+ * 
  * @author Patrick Housley <patrick.f.housley@gmail.com>
  * @version 1.0
  * @since 1.0
- * @package DenDad
- * @subpackage controllers
+ * @package com\github\patrickhousley\den_dad
+ * @subpackage controller
  * @copyright (c) 2012, Patrick Housley
  */
-namespace DenDad\controllers;
+namespace com\github\patrickhousley\den_dad\controller;
 
-class Account extends \DenDad\base\BaseController implements \DenDad\interfaces\IController {
+use \com\github\patrickhousley\den_dad\lib\ControllerSettings;
+use \com\github\patrickhousley\den_dad\view\account as AccountViews;
+use \com\github\patrickhousley\den_dad\model as AppModels;
+
+class Account {
+    /**
+     * Stores all settings for the current controller.
+     * @var com\github\patirickhousley\den_dad\lib\ControllerSettings 
+     */
+    private $settings;
+    
+    public function __construct(ControllerSettings $settings) {
+        $this->settings = $settings;
+        $this->{$this->settings->getAction()}();
+    }
     
     /**
      * View controller action function.
@@ -21,23 +36,23 @@ class Account extends \DenDad\base\BaseController implements \DenDad\interfaces\
      */
     protected function View() {
         if (!isset($_SESSION['login'])) {
-            \header('Location:/Index');
+            header('Location:/Index');
         }
         
-        $this->_view = new \DenDad\views\Account\View();
-        $this->defaultTemplateData();
+        $this->settings->setView(new AccountViews\View());
+        $this->settings->loadDefaultSettings();
         
-        $this->_view->set('login', $this->_models['User']->get('firstName'));
-        $this->_view->set('firstName', $this->_models['User']->get('firstName'));
-        $this->_view->set('lastName', $this->_models['User']->get('lastName'));
-        $this->_view->set('email', $this->_models['User']->get('email'));
-        $this->_view->set('phone', $this->_models['User']->get('phone'));
-        $this->_view->set('lastAccessDate', $this->_models['User']->get('lastAccessDate'));
-        $this->_view->set('lastAccessIP', $this->_models['User']->get('lastAccessIP'));
+        $this->settings->getView()->set('login', $this->_models['User']->get('firstName'));
+        $this->settings->getView()->set('firstName', $this->_models['User']->get('firstName'));
+        $this->settings->getView()->set('lastName', $this->_models['User']->get('lastName'));
+        $this->settings->getView()->set('email', $this->_models['User']->get('email'));
+        $this->settings->getView()->set('phone', $this->_models['User']->get('phone'));
+        $this->settings->getView()->set('lastAccessDate', $this->_models['User']->get('lastAccessDate'));
+        $this->settings->getView()->set('lastAccessIP', $this->_models['User']->get('lastAccessIP'));
         
-        $this->_view->set('function', 'edit');
+        $this->settings->getView()->set('function', 'edit');
         
-        $this->_view->render(true);
+        $this->settings->getView()->render(true);
     }
     
     /**
@@ -54,28 +69,27 @@ class Account extends \DenDad\base\BaseController implements \DenDad\interfaces\
     protected function Auth() {
         if (!isset($_POST['login']) || trim($_POST['login']) == '') {
             $_SESSION['authError'] = 'Login ID or Password Invalid';
-            \header('Location:/Login');
+            header('Location:/Login');
         } elseif (!isset($_SESSION['secKey']) || $_POST['secKey'] != $_SESSION['secKey']) {
             $_SESSION['authError'] = 'Authentication Security Failure';
-            \header('Location:/Login');
+            header('Location:/Login');
         } else {
-            $this->_models['User'] = new \DenDad\models\User($_POST['login']);
-            $login = $this->_models['User']->get('login');
+            $this->settings->setModel('User', new AppModels\User($_POST['login']));
+            $login = $this->settings->getModel('User')->get('login');
 
             if (isset($login) && $login != '') {
-                $pass = $this->_models['User']->get('password');
-                $salt = $this->_models['User']->get('salt');
-
-                if (md5($_POST['password'] . $salt) == $pass) {
-                    $_SESSION['login'] = $this->_models['User']->get('login');
-                    \header('Location:/Index');
+                $pass = $this->settings->getModel('User')->get('password');
+                
+                if (password_verify($_POST['password'], $pass)) {
+                    $_SESSION['login'] = $login = $this->settings->getModel('User')->get('login');
+                    header('Location:/Index');
                 } else {
                     $_SESSION['authError'] = 'Login ID or Password Invalid';
-                    \header('Location:/Login');
+                    header('Location:/Login');
                 }
             } else {
                 $_SESSION['authError'] = 'Login ID or Password Invalid';
-                \header('Location:/Login');
+                header('Location:/Login');
             }
         }
     }

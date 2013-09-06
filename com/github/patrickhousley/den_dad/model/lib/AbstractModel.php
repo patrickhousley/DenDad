@@ -8,13 +8,12 @@
  * @version 1.0
  * @since 1.0
  * @package com\github\patrickhousley\den_dad
- * @subpackage model
+ * @subpackage model\lib
  * @copyright (c) 2012, Patrick Housley
  */
 
-namespace com\github\patrickhousley\den_dad\model;
+namespace com\github\patrickhousley\den_dad\model\lib;
 
-use \com\github\patrickhousley\den_dad\interfaces as AppInterfaces;
 use \InvalidArgumentException;
 use \Exception;
 
@@ -43,12 +42,6 @@ abstract class AbstractModel implements AppInterfaces\Modelable {
      * @var array 
      */
     protected $changes;
-    
-    /**
-     * Data access object for the current model.
-     * @var com\github\patrickhousley\den_dad\interfaces\DAO
-     */
-    private $dao;
 
     /**
      * Instantiate the model object and set the primary key, column map and load
@@ -67,10 +60,6 @@ abstract class AbstractModel implements AppInterfaces\Modelable {
         $this->primaryKey = $primaryKey;
         $this->primaryKeyAI = $primaryKeyAI;
         $this->columnMap = $columnMap;
-        
-        $daoFQN = 'com\\github\\patrickhousley\\den_dad\\controller\\' .
-                $GLOBALS['DENDAD_DB_CONFIG']['DB_DAO'];
-        $this->dao = new $daoFQN();
     }
 
     /**

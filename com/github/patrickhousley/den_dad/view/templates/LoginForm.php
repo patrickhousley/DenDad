@@ -27,7 +27,7 @@
     }
 </style>
 <div id='dd_loginForm'>
-    <form action='/Login/Auth' method='POST'>
+    <form action='/Account/Auth' method='POST'>
         <table>
             <tr>
                 <td colspan='2' style='text-align: center;'>

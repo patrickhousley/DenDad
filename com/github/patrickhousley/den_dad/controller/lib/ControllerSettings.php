@@ -8,19 +8,18 @@
  * @version 1.0
  * @since 1.0
  * @package com\github\patrickhousley\den_dad
- * @subpackage lib
+ * @subpackage controller\lib
  * @copyright (c) 2012, Patrick Housley
  */
 
-namespace com\github\patrickhousley\den_dad\lib;
+namespace com\github\patrickhousley\den_dad\controller\lib;
 
-use \com\github\patrickhousley\den_dad\interfaces as AppInterfaces;
 use \com\github\patrickhousley\den_dad\model as AppModels;
 
 class ControllerSettings {
     /**
      * References the instantiated view registered for the controller.
-     * @var com\github\patrickhousley\den_dad\interfaces\Viewable
+     * @var com\github\patrickhousley\den_dad\view\AbstractView
      */
     private $view;
     

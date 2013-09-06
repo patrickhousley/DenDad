@@ -7,17 +7,23 @@
  * @version 1.0
  * @since 1.0
  * @package com\github\patrickhousley\den_dad
- * @subpackage interfaces
+ * @subpackage dao\lib
  * @copyright (c) 2012, Patrick Housley
  */
-namespace com\github\patrickhousley\den_dad\interfaces;
+namespace com\github\patrickhousley\den_dad\dao\lib;
 
-interface DAO {
+abstract class AbstractDAO {
     
     /**
      * Create a connection to the database and return the connection.
      */
     abstract static function connect();
+    
+    /**
+     * Select a single record from the database and return it in the form of
+     * the tables model class.
+     */
+    abstract static function select();
     
     /**
      * Retrieve value map from the model and persist it in the database.
